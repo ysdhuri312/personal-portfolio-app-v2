@@ -1,16 +1,24 @@
 /** @format */
 
 import type { Metadata } from 'next';
-import { Inter, Open_Sans } from 'next/font/google';
+import { Inter, Open_Sans, Poppins } from 'next/font/google';
 import './globals.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const inter = Inter({
-  variable: '--font-inter',
+  variable: '--font-heading',
   subsets: ['latin'],
 });
 
 const openSans = Open_Sans({
-  variable: '--font-open-sans',
+  variable: '--font-body',
+  subsets: ['latin'],
+});
+
+const poppins = Poppins({
+  weight: ['100', '200'],
+  variable: '--font-poppins',
   subsets: ['latin'],
 });
 
@@ -28,9 +36,13 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={`${inter.variable} ${openSans.variable} h-full antialiased`}
+      className={`${inter.variable} ${openSans.variable} ${poppins.variable} antialiased`}
     >
-      <body className='min-h-full flex flex-col'>{children}</body>
+      <body className='bg-white-custom'>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
