@@ -1,15 +1,15 @@
 /** @format */
 
 import type { Metadata } from 'next';
-import { Inter, Open_Sans, Poppins } from 'next/font/google';
+import { Inter, Open_Sans, Poppins, Geist } from 'next/font/google';
 import './globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { cn } from "@/lib/utils";
 
-const inter = Inter({
-  variable: '--font-heading',
-  subsets: ['latin'],
-});
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
+const interHeading = Inter({subsets:['latin'],variable:'--font-heading'});
 
 const openSans = Open_Sans({
   variable: '--font-body',
@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={`${inter.variable} ${openSans.variable} ${poppins.variable} antialiased`}
+      className={cn("antialiased", openSans.variable, poppins.variable, "font-sans", geist.variable, interHeading.variable)}
     >
       <body className='bg-white-custom'>
         <Header />
