@@ -3,13 +3,59 @@
 'use client';
 
 import { useState } from 'react';
+import { Tabs, TabsList, TabsTrigger } from './ui/tabs';
+import Link from 'next/link';
+import { Sun } from 'lucide-react';
+import { Moon } from 'lucide-react';
+import { Button } from './ui/button';
+import { useTheme } from 'next-themes';
 
 export default function Header() {
-  const [open, setOpen] = useState(true);
+  const { resolvedTheme, setTheme } = useTheme();
 
   return (
-    <div className='bg-amber-400 font-poppins'>
-      <div className='container px-8'>nav</div>
-    </div>
+    <header>
+      <div className='max-w-7xl mx-auto py-4 px-6 md:px-10 lg:px-14'>
+        <div className='md:flex justify-between items-center'>
+          <div className='text-3xl font-heading'>YD</div>
+          <nav className='md:flex gap-4 text-4xl'>
+            <Tabs defaultValue='home'>
+              <TabsList variant='line'>
+                <TabsTrigger value='home'>
+                  <Link href='/'>Home</Link>
+                </TabsTrigger>
+                <TabsTrigger value='about'>
+                  <Link href='/about'>About</Link>
+                </TabsTrigger>
+                <TabsTrigger value='projects'>
+                  <Link href='/projects'>Projects</Link>
+                </TabsTrigger>
+                <TabsTrigger value='blogs'>
+                  <Link href='/blogs'>Blogs</Link>
+                </TabsTrigger>
+                <TabsTrigger value='photos'>
+                  <Link href='/photos'>Photos</Link>
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
+          </nav>
+          <div>
+            <Button
+              variant='outline'
+              size='icon-lg'
+              onClick={() =>
+                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+              }
+            >
+              {resolvedTheme === 'dark' ? (
+                <Sun className='h-5 w-5' />
+              ) : (
+                <Moon className='h-5 w-5' />
+              )}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 }

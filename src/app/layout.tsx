@@ -1,26 +1,16 @@
 /** @format */
 
 import type { Metadata } from 'next';
-import { Inter, Open_Sans, Poppins, Geist } from 'next/font/google';
+import { Inter, Geist } from 'next/font/google';
 import './globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { cn } from "@/lib/utils";
+import { cn } from '@/src/lib/utils';
+import { ThemeProvider } from '../components/theme-provider';
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
-const interHeading = Inter({subsets:['latin'],variable:'--font-heading'});
-
-const openSans = Open_Sans({
-  variable: '--font-body',
-  subsets: ['latin'],
-});
-
-const poppins = Poppins({
-  weight: ['100', '200'],
-  variable: '--font-poppins',
-  subsets: ['latin'],
-});
+const interHeading = Inter({ subsets: ['latin'], variable: '--font-heading' });
 
 export const metadata: Metadata = {
   title: 'Yogesh Dhuri | Full Stack Web Developer Portfolio',
@@ -36,12 +26,22 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={cn("antialiased", openSans.variable, poppins.variable, "font-sans", geist.variable, interHeading.variable)}
+      className={cn(
+        'antialiased',
+        'font-sans',
+        geist.variable,
+        interHeading.variable,
+      )}
+      suppressHydrationWarning
     >
-      <body className='bg-white-custom'>
-        <Header />
-        {children}
-        <Footer />
+      <body>
+        <ThemeProvider>
+          <Header />
+          <main className='flex justify-center items-center flex-1'>
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
