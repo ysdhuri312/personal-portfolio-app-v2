@@ -5,7 +5,9 @@ export default function Footer() {
     <footer>
       <div className='max-w-7xl mx-auto py-4 px-6 md:px-10 lg:px-14'>
         <div className='md:flex justify-between items-center'>
-          <div>© 2026 Yogesh Dhuri. All rights reserved.</div>
+          <div className='text-foreground/60'>
+            © 2026 Yogesh Dhuri. All rights reserved.
+          </div>
           <div className='flex gap-2'>
             <div>
               <svg
