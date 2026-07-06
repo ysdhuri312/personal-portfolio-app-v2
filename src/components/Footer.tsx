@@ -77,7 +77,7 @@ export default function Footer() {
                 viewBox='0 0 512 512'
                 className='hover:fill-primary border rounded-sm w-9 p-1 fill-foreground/60 hover:-translate-y-1 hover:scale-110 transition-all'
               >
-                <g clip-path='url(#prefix__clip0_9_19)'>
+                <g clipPath='url(#prefix__clip0_9_19)'>
                   <path
                     d='M256.165 256.454l-.352-.206L255 256a1.93 1.93 0 001.165.454zM256.149 256.035a.749.749 0 01-.147-.035.535.535 0 000 .098.303.303 0 00.147-.063z'
                     fill='#0D0C22'

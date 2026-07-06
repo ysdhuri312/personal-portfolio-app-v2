@@ -2,7 +2,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Tabs, TabsList, TabsTrigger } from './ui/tabs';
 import Link from 'next/link';
 import { Sun } from 'lucide-react';
@@ -12,6 +12,15 @@ import { useTheme } from 'next-themes';
 
 export default function Header() {
   const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <header>
