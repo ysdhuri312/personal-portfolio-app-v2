@@ -1,12 +1,7 @@
 /** @format */
 
-import Image from 'next/image';
-import { Button } from '../components/ui/button';
+import Home from '../pages/Home';
 
-export default function Home() {
-  return (
-    <main className='flex'>
-      <Button>Hellow</Button>
-    </main>
-  );
+export default function page() {
+  return <Home />;
 }
