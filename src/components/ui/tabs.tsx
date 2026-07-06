@@ -16,10 +16,7 @@ function Tabs({
     <TabsPrimitive.Root
       data-slot='tabs'
       data-orientation={orientation}
-      className={cn(
-        'group/tabs flex gap-2 data-horizontal:flex-col',
-        className,
-      )}
+      className={cn('group/tabs flex data-horizontal:flex-col', className)}
       {...props}
     />
   );
@@ -31,7 +28,7 @@ const tabsListVariants = cva(
     variants: {
       variant: {
         default: 'bg-muted',
-        line: 'gap-6 bg-transparent',
+        line: 'gap-5 bg-transparent',
       },
     },
     defaultVariants: {
