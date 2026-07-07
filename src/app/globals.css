@@ -4,11 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-.container {
-  max-width: 1280px;
-  margin-inline: auto;
-}
-
 @theme {
   --color-white-custom: #FFF7F5;
   --color-primary: #E85D3F;
@@ -138,7 +133,7 @@
   }
 
   body {
-    @apply bg-background text-foreground list-none min-h-screen flex flex-col;
+    @apply bg-background text-foreground list-none;
   }
 
   html {

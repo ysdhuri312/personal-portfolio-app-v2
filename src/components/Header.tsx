@@ -26,9 +26,9 @@ export default function Header() {
     <header>
       <div className='max-w-7xl mx-auto py-4 px-6 md:px-10 lg:px-14'>
         <div className='md:flex justify-between items-center'>
-          <a href='/' className='text-3xl font-heading -tracking-widest'>
+          <Link href='/' className='text-3xl font-heading -tracking-widest'>
             YD
-          </a>
+          </Link>
           <nav className='md:flex gap-4 text-4xl'>
             <Tabs defaultValue='home'>
               <TabsList variant='line'>

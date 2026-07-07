@@ -34,7 +34,7 @@ export default function RootLayout({
       )}
       suppressHydrationWarning
     >
-      <body>
+      <body className='min-h-screen flex flex-col justify-between'>
         <ThemeProvider>
           <Header />
           <main className='flex justify-center items-center flex-1'>
