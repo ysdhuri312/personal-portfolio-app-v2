@@ -3,7 +3,6 @@
 import { AspectRatio } from '@/src/components/ui/aspect-ratio';
 import Image from 'next/image';
 import Link from 'next/link';
-import { resume } from '@/public';
 
 export default function About() {
   return (

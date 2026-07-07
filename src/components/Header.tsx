@@ -24,7 +24,7 @@ export default function Header() {
 
   return (
     <header>
-      <div className='max-w-7xl mx-auto py-4 px-6 md:px-10 lg:px-14'>
+      <div className='container py-4 md:px-10 lg:px-14'>
         <div className='md:flex justify-between items-center'>
           <Link href='/' className='text-3xl font-heading -tracking-widest'>
             YD

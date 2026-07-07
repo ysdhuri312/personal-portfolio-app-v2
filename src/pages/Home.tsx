@@ -1,5 +1,7 @@
 /** @format */
 
+import Link from 'next/link';
+
 export default function Home() {
   return (
     <div className='container'>
@@ -17,11 +19,18 @@ export default function Home() {
           <p className='mt-2 font-extralight text-[22px] '>
             Read more{' '}
             <span className='font-normal relative inline-block border-b-3 border-primary px-1 py-0.5 before:absolute before:inset-0 before:origin-bottom before:scale-y-0 before:bg-primary before:transition-transform before:duration-300 before:content-[""] hover:before:scale-y-100'>
-              <span className='relative z-10 hover:text-white'>about me</span>
+              <Link href='/about' className='relative z-10 hover:text-white'>
+                about me
+              </Link>
             </span>
             or{' '}
             <span className='font-normal relative inline-block border-b-3 border-primary px-1 py-0.5 before:absolute before:inset-0 before:origin-bottom before:scale-y-0 before:bg-primary before:transition-transform before:duration-300 before:content-[""] hover:before:scale-y-100'>
-              <span className='relative z-10 hover:text-white'>contact me</span>
+              <Link
+                href='mailto:info@dhuri.dev'
+                className='relative z-10 hover:text-white'
+              >
+                contact me
+              </Link>
             </span>
           </p>
         </div>

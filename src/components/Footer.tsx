@@ -3,7 +3,7 @@
 export default function Footer() {
   return (
     <footer>
-      <div className='max-w-7xl mx-auto py-4 px-6 md:px-10 lg:px-14'>
+      <div className='container py-4 md:px-10 lg:px-14'>
         <div className='md:flex justify-between items-center'>
           <div className='text-foreground/60'>
             © 2026 Yogesh Dhuri. All rights reserved.
