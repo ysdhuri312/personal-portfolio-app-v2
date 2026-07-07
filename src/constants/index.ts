@@ -70,4 +70,28 @@ export const projects = [
       'https://github.com/ysdhuri312/learning-management-system-v1.git',
     live_app_link: 'https://lms-frontend-nine-psi.vercel.app/',
   },
+
+  {
+    name: 'Learning Management System (Edemy)',
+    description:
+      'Developed a full-stack Learning Management System featuring secure authentication, course browsing, enrollment, and lecture access using React, Node.js, Express.js, and MongoDB. Integrated Clerk for authentication and user management, Stripe for secure payment processing, and Cloudinary for media storage and delivery.',
+    tags: [
+      {
+        name: 'react-js',
+        color: 'blue-text-gradient',
+      },
+      {
+        name: 'node-js',
+        color: 'green-text-gradient',
+      },
+      {
+        name: 'REST-api',
+        color: 'pink-text-gradient',
+      },
+    ],
+    image: edemy,
+    source_code_link:
+      'https://github.com/ysdhuri312/learning-management-system-v1.git',
+    live_app_link: 'https://lms-frontend-nine-psi.vercel.app/',
+  },
 ];

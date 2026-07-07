@@ -20,11 +20,11 @@ export default function Projects() {
       <section className='m-h-screen'>
         <h1 className='text-6xl font-extrabold mt-20 mb-8'>Projects</h1>
         <hr />
-        <div className='flex justify-center flex-wrap gap-2 my-10'>
+        <div className='flex justify-center flex-wrap my-10'>
           {projects.map((project, i) => {
             return (
               <Card
-                className='relative mx-auto w-full max-w-sm pt-0 m-2 hover:-translate-y-3 transition-all'
+                className='relative mx-auto w-full max-w-sm pt-0 m-4 hover:-translate-y-3 transition-all'
                 key={i}
               >
                 <div className='absolute inset-0 z-30 aspect-video bg-black/35' />
