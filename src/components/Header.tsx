@@ -9,6 +9,13 @@ import { Sun } from 'lucide-react';
 import { Moon } from 'lucide-react';
 import { Button } from './ui/button';
 import { useTheme } from 'next-themes';
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from './ui/navigation-menu';
 
 export default function Header() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -29,26 +36,51 @@ export default function Header() {
           <Link href='/' className='text-3xl font-heading -tracking-widest'>
             YD
           </Link>
-          <nav className='md:flex gap-4 text-4xl'>
-            <Tabs defaultValue='home'>
-              <TabsList variant='line'>
-                <TabsTrigger value='home'>
-                  <Link href='/'>Home</Link>
-                </TabsTrigger>
-                <TabsTrigger value='about'>
-                  <Link href='/about'>About</Link>
-                </TabsTrigger>
-                <TabsTrigger value='projects'>
-                  <Link href='/projects'>Projects</Link>
-                </TabsTrigger>
-                <TabsTrigger value='blogs'>
-                  <Link href='/blogs'>Blogs</Link>
-                </TabsTrigger>
-                <TabsTrigger value='photos'>
-                  <Link href='/photos'>Photos</Link>
-                </TabsTrigger>
-              </TabsList>
-            </Tabs>
+          <nav className='md:flex'>
+            <NavigationMenu>
+              <NavigationMenuList className='gap-1'>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    render={<Link href='/' />}
+                    className={`${navigationMenuTriggerStyle()} text-base`}
+                  >
+                    Home
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    render={<Link href='/about' />}
+                    className={`${navigationMenuTriggerStyle()} text-base`}
+                  >
+                    About
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    render={<Link href='/projects' />}
+                    className={`${navigationMenuTriggerStyle()} text-base`}
+                  >
+                    Projects
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    render={<Link href='/blogs' />}
+                    className={`${navigationMenuTriggerStyle()} text-base`}
+                  >
+                    Blogs
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    render={<Link href='/photos' />}
+                    className={`${navigationMenuTriggerStyle()} text-base`}
+                  >
+                    Photos
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
           </nav>
           <div>
             <Button
