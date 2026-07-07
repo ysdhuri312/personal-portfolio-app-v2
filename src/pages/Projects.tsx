@@ -17,14 +17,14 @@ import Link from 'next/link';
 export default function Projects() {
   return (
     <div className='container'>
-      <section className='m-h-scree'>
+      <section className='m-h-screen'>
         <h1 className='text-6xl font-extrabold mt-20 mb-8'>Projects</h1>
         <hr />
-        <div className='flex flex-wrap gap-2 my-10'>
+        <div className='flex justify-center flex-wrap gap-2 my-10'>
           {projects.map((project, i) => {
             return (
               <Card
-                className='relative mx-auto w-full max-w-sm pt-0 hover:-translate-y-3 transition-all'
+                className='relative mx-auto w-full max-w-sm pt-0 m-2 hover:-translate-y-3 transition-all'
                 key={i}
               >
                 <div className='absolute inset-0 z-30 aspect-video bg-black/35' />
