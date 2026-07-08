@@ -8,5 +8,14 @@ import edemy from './thumbnails/edemy-lms.png';
 
 import hamburger from './icons/hamburger-menu.png';
 import close from './icons/close.png';
+import underConstruction from './icons/under-construction.gif';
 
-export { heroImage, portfolio, yelpCamp, edemy, hamburger, close };
+export {
+  heroImage,
+  portfolio,
+  yelpCamp,
+  edemy,
+  hamburger,
+  close,
+  underConstruction,
+};
