@@ -337,7 +337,7 @@ export default function BlogList() {
                 <dt className='sr-only'>Published on</dt>
                 <dd className='text-xl text-foreground/60 tracking-wide '>
                   <time dateTime='2022-09-04T00:00:00.000Z'>
-                    September 4, 2022
+                    Sunday, September 4, 2022
                   </time>
                 </dd>
               </dl>
