@@ -1,0 +1,22 @@
+import matter from 'gray-matter';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const postDirectory = path.join(process.cwd(), 'src/data/blog/');
+
+export function getAllPosts() {
+  const fileNames = fs.readdirSync(postDirectory);
+
+  return fileNames.map((fileName) => {
+    const fullPath = path.join(postDirectory, fileName);
+    const fileContent = fs.readFileSync(fullPath, 'utf8');
+
+    const { content, data } = matter(fileContent);
+
+    return {
+      slug: fileName.replace('.mdx', ''),
+      data,
+      content,
+    };
+  });
+}
