@@ -21,6 +21,7 @@ import { formatedDateWithoutWeekDay } from '../utils/formatedDate';
 
 export default function BlogList() {
   const posts = getAllPosts();
+  const sortedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
     <div className='container'>
@@ -334,9 +335,9 @@ export default function BlogList() {
         </InputGroup>
         <hr />
         <ul>
-          {posts.map((post, i) => {
-            const { slug, data: metadata } = post;
-            const { title, date, summary, tags } = metadata;
+          {sortedPosts.map((post, i) => {
+            const { slug, title, date, summary, tags } = post;
+
             return (
               <li className='py-8' key={i}>
                 <article className='space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0'>

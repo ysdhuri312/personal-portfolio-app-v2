@@ -10,12 +10,16 @@ export function getAllPosts() {
   return fileNames.map((fileName) => {
     const fullPath = path.join(postDirectory, fileName);
     const fileContent = fs.readFileSync(fullPath, 'utf8');
-
     const { content, data } = matter(fileContent);
+    const { title, date, summary, image, tags } = data;
 
     return {
       slug: fileName.replace('.md', ''),
-      data,
+      title,
+      date,
+      summary,
+      image,
+      tags,
       content,
     };
   });

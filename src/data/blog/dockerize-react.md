@@ -1,6 +1,6 @@
 ---
-title: 'Dockerize your Node app'
-date: '2021-07-13'
+title: 'Dockerize your React app'
+date: '2021-10-13'
 tags: ['node', 'docker', 'devops', 'javascript']
 draft: false
 summary: 'Learn how to dockerize your Node application for development and production'

@@ -12,10 +12,11 @@ import { AspectRatio } from '../components/ui/aspect-ratio';
 import Image from 'next/image';
 import { MarkdownRender } from '../lib/MarkdownRenderer';
 import { formatedDateWithWeekDay } from '../utils/formatedDate';
+import { getPrevNext } from '../utils/getPrevNext';
 
 export default async function BlogPost({ post }: any) {
-  const { content, data: metadata } = await post;
-  const { date, title, image } = metadata;
+  const { content, date, title, image, slug } = await post;
+  const { prev, next } = getPrevNext(slug);
 
   return (
     <div className='container'>
@@ -130,16 +131,22 @@ export default async function BlogPost({ post }: any) {
                       <h2 className='text-lg text-foreground/60'>
                         Previous article
                       </h2>
-                      <Link href='#' className='text-[16px]'>
-                        CSP vs Actor model for concurrency
+                      <Link
+                        href={`/blog/${prev?.slug}`}
+                        className='text-[16px]'
+                      >
+                        {prev?.title}
                       </Link>
                     </div>
                     <div>
                       <h2 className='text-lg text-foreground/60'>
                         Next article
                       </h2>
-                      <Link href='#' className='text-[16px]'>
-                        System Design: The complete course
+                      <Link
+                        href={`/blog/${next?.slug}`}
+                        className='text-[16px]'
+                      >
+                        {next?.title}
                       </Link>
                     </div>
                   </div>
