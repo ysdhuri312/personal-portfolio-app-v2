@@ -14,9 +14,20 @@ export function getAllPosts() {
     const { content, data } = matter(fileContent);
 
     return {
-      slug: fileName.replace('.mdx', ''),
+      slug: fileName.replace('.md', ''),
       data,
       content,
     };
   });
+}
+
+export async function getPost(slug: string) {
+  const posts = getAllPosts();
+  const post = posts.find((post) => post.slug == slug);
+
+  if (!post) {
+    throw new Error('Post not found');
+  }
+
+  return post;
 }
