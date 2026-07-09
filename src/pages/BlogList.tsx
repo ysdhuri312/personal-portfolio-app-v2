@@ -6,7 +6,6 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-  InputGroupText,
 } from '../components/ui/input-group';
 import Link from 'next/link';
 import {
@@ -17,8 +16,11 @@ import {
   DialogTrigger,
 } from '../components/ui/dialog';
 import { Button } from '../components/ui/button';
+import { getAllPosts } from '../services/blogPost';
 
 export default function BlogList() {
+  const posts = getAllPosts();
+
   return (
     <div className='container'>
       <section className='min-h-screen'>
@@ -331,153 +333,45 @@ export default function BlogList() {
         </InputGroup>
         <hr />
         <ul>
-          <li className='py-8'>
-            <article className='space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0'>
-              <dl>
-                <dt className='sr-only'>Published on</dt>
-                <dd className='text-xl text-foreground/60 tracking-wide '>
-                  <time dateTime='2022-09-04T00:00:00.000Z'>
-                    Sunday, September 4, 2022
-                  </time>
-                </dd>
-              </dl>
-              <div className='space-y-3 xl:col-span-3'>
-                <div>
-                  <h3 className='text-3xl font-bold'>
-                    <a href='/blog/system-design-the-complete-course'>
-                      System Design: The complete course
-                    </a>
-                  </h3>
-                  <div className='flex flex-wrap gap-1 my-2'>
-                    <Badge variant='outline' className='text-sm p-3'>
-                      system-design
-                    </Badge>
-                    <Badge variant='outline' className='text-sm p-3'>
-                      distributedsystems
-                    </Badge>
-                    <Badge variant='outline' className='text-sm p-3'>
-                      architecture
-                    </Badge>
+          {posts.map((post, i) => {
+            const { data: metadata } = post;
+            const { title, date, summary, images, tags } = metadata;
+            return (
+              <li className='py-8' key={i}>
+                <article className='space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0'>
+                  <dl>
+                    <dt className='sr-only'>Published on</dt>
+                    <dd className='text-xl text-foreground/60'>
+                      <time dateTime='2022-09-04T00:00:00.000Z'>{date}</time>
+                    </dd>
+                  </dl>
+                  <div className='space-y-3 xl:col-span-3'>
+                    <div>
+                      <h3 className='text-3xl font-bold'>
+                        <Link href='/blog/system-design-the-complete-course'>
+                          {title}
+                        </Link>
+                      </h3>
+                      <div className='flex flex-wrap gap-1 my-2'>
+                        {tags.map((tag: string, i: number) => (
+                          <Badge
+                            variant='outline'
+                            className='text-sm p-3'
+                            key={i}
+                          >
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <div className='prose max-w-none text-gray-500 dark:text-gray-400'>
+                      {summary}
+                    </div>
                   </div>
-                </div>
-                <div className='prose max-w-none text-gray-500 dark:text-gray-400'>
-                  Learn how to design systems at scale and prepare for system
-                  design interviews
-                </div>
-              </div>
-            </article>
-          </li>
-          <li className='py-8'>
-            <article className='space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0'>
-              <dl>
-                <dt className='sr-only'>Published on</dt>
-                <dd className='text-xl text-foreground/60 tracking-wide '>
-                  <time dateTime='2022-09-04T00:00:00.000Z'>
-                    September 4, 2022
-                  </time>
-                </dd>
-              </dl>
-              <div className='space-y-3 xl:col-span-3'>
-                <div>
-                  <h3 className='text-3xl font-bold'>
-                    <Link
-                      href='/blog/system-design-the-complete-course'
-                      className='tracking-wide'
-                    >
-                      System Design: The complete course
-                    </Link>
-                  </h3>
-                  <div className='flex flex-wrap gap-1 my-2'>
-                    <Badge variant='outline' className='text-sm p-3'>
-                      system-design
-                    </Badge>
-                    <Badge variant='outline' className='text-sm p-3'>
-                      distributedsystems
-                    </Badge>
-                    <Badge variant='outline' className='text-sm p-3'>
-                      architecture
-                    </Badge>
-                  </div>
-                </div>
-                <div className='prose max-w-none text-gray-500 dark:text-gray-400'>
-                  Learn how to design systems at scale and prepare for system
-                  design interviews
-                </div>
-              </div>
-            </article>
-          </li>
-          <li className='py-8'>
-            <article className='space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0'>
-              <dl>
-                <dt className='sr-only'>Published on</dt>
-                <dd className='text-xl text-foreground/60 tracking-wide '>
-                  <time dateTime='2022-09-04T00:00:00.000Z'>
-                    September 4, 2022
-                  </time>
-                </dd>
-              </dl>
-              <div className='space-y-3 xl:col-span-3'>
-                <div>
-                  <h3 className='text-3xl font-bold'>
-                    <a href='/blog/system-design-the-complete-course'>
-                      System Design: The complete course
-                    </a>
-                  </h3>
-                  <div className='flex flex-wrap gap-1 my-2'>
-                    <Badge variant='outline' className='text-sm p-3'>
-                      system-design
-                    </Badge>
-                    <Badge variant='outline' className='text-sm p-3'>
-                      distributedsystems
-                    </Badge>
-                    <Badge variant='outline' className='text-sm p-3'>
-                      architecture
-                    </Badge>
-                  </div>
-                </div>
-                <div className='prose max-w-none text-gray-500 dark:text-gray-400'>
-                  Learn how to design systems at scale and prepare for system
-                  design interviews
-                </div>
-              </div>
-            </article>
-          </li>
-          <li className='py-8'>
-            <article className='space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0'>
-              <dl>
-                <dt className='sr-only'>Published on</dt>
-                <dd className='text-xl text-foreground/60 tracking-wide '>
-                  <time dateTime='2022-09-04T00:00:00.000Z'>
-                    September 4, 2022
-                  </time>
-                </dd>
-              </dl>
-              <div className='space-y-3 xl:col-span-3'>
-                <div>
-                  <h3 className='text-3xl font-bold'>
-                    <a href='/blog/system-design-the-complete-course'>
-                      System Design: The complete course
-                    </a>
-                  </h3>
-                  <div className='flex flex-wrap gap-1 my-2'>
-                    <Badge variant='outline' className='text-sm p-3'>
-                      system-design
-                    </Badge>
-                    <Badge variant='outline' className='text-sm p-3'>
-                      distributedsystems
-                    </Badge>
-                    <Badge variant='outline' className='text-sm p-3'>
-                      architecture
-                    </Badge>
-                  </div>
-                </div>
-                <div className='prose max-w-none text-gray-500 dark:text-gray-400'>
-                  Learn how to design systems at scale and prepare for system
-                  design interviews
-                </div>
-              </div>
-            </article>
-          </li>
+                </article>
+              </li>
+            );
+          })}
         </ul>
       </section>
     </div>
