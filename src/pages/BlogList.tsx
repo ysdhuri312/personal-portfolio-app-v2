@@ -17,6 +17,7 @@ import {
 } from '../components/ui/dialog';
 import { Button } from '../components/ui/button';
 import { getAllPosts } from '../services/blogPost';
+import { formatedDateWithoutWeekDay } from '../utils/formatedDate';
 
 export default function BlogList() {
   const posts = getAllPosts();
@@ -335,14 +336,16 @@ export default function BlogList() {
         <ul>
           {posts.map((post, i) => {
             const { slug, data: metadata } = post;
-            const { title, date, summary, images, tags } = metadata;
+            const { title, date, summary, tags } = metadata;
             return (
               <li className='py-8' key={i}>
                 <article className='space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0'>
                   <dl>
                     <dt className='sr-only'>Published on</dt>
-                    <dd className='text-xl text-foreground/60'>
-                      <time dateTime='2022-09-04T00:00:00.000Z'>{date}</time>
+                    <dd className='text-lg text-foreground/60'>
+                      <time dateTime='2022-09-04T00:00:00.000Z'>
+                        {formatedDateWithoutWeekDay(date)}
+                      </time>
                     </dd>
                   </dl>
                   <div className='space-y-3 xl:col-span-3'>

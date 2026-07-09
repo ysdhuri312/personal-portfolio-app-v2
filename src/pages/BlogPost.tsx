@@ -11,24 +11,25 @@ import Blog from '@/public/icons/Blog';
 import { AspectRatio } from '../components/ui/aspect-ratio';
 import Image from 'next/image';
 import { MarkdownRender } from '../lib/MarkdownRenderer';
+import { formatedDateWithWeekDay } from '../utils/formatedDate';
 
 export default async function BlogPost({ post }: any) {
-  const { content, slug, data } = await post;
-  const { date, title, image } = data;
-
-  console.log(content);
+  const { content, data: metadata } = await post;
+  const { date, title, image } = metadata;
 
   return (
     <div className='container'>
       <article className='fade-in mt-7'>
         <div className='xl:divide-y '>
-          <header className='pt-6 xl:pb-6'>
+          <div className='pt-6 xl:pb-6'>
             <div className='space-y-1 text-center'>
               <dl className='space-y-10'>
                 <div>
                   <dt className='sr-only'>Published on</dt>
                   <dd className='text-lg tracking-wide text-foreground/60'>
-                    <time dateTime='2022-09-04T00:00:00.000Z'>{date}</time>
+                    <time dateTime='2022-09-04T00:00:00.000Z'>
+                      {formatedDateWithWeekDay(date)}
+                    </time>
                   </dd>
                 </div>
               </dl>
@@ -59,7 +60,7 @@ export default async function BlogPost({ post }: any) {
                 </li>
               </ul>
             </div>
-          </header>
+          </div>
           <div
             className='divide-y xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0'
             style={{ gridTemplateRows: 'auto 1fr' }}
