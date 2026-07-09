@@ -65,7 +65,7 @@ export default function Header() {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuLink
-                    render={<Link href='/blogs' />}
+                    render={<Link href='/blog' />}
                     className={`${navigationMenuTriggerStyle()} text-base`}
                   >
                     Blogs
