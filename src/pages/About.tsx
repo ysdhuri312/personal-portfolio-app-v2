@@ -19,7 +19,7 @@ export default function About() {
                   className='w-full max-w-50 mx-auto rounded-full bg-muted'
                 >
                   <Image
-                    src='https://avatar.vercel.sh/shadcn1'
+                    src='https://avatar.vercel.sh/vercel.svg?text=YD'
                     alt='Photo'
                     fill
                     className='rounded-full object-cover grayscale dark:brightness-20'
