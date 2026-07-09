@@ -4,14 +4,14 @@ date: '2022-01-06'
 tags: ['aws', 'beginners']
 draft: false
 summary: 'Everything that is there to learn about AWS'
-images: ['/blogs/aws-roadmap.png']
+image: '/blogs/aws-roadmap.png'
 authors: ['default']
 ---
 
 Today, we'll take a look at a brief AWS roadmap. Our goal is to focus on fundamentals then identify and learn the most commonly used services first and learn specialized services on a need to know basis.
 
 <iframe
-  className='sm:h-96'
+  class='sm:h-96'
   height='100%'
   width='100%'
   src='https://www.youtube.com/embed/yzCx4qvjwgw'
