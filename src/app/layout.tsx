@@ -1,16 +1,14 @@
 /** @format */
 
 import type { Metadata } from 'next';
-import { Inter, Geist } from 'next/font/google';
+import { Inter, Geist, Open_Sans } from 'next/font/google';
 import './globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { cn } from '@/src/lib/utils';
 import { ThemeProvider } from '../components/theme-provider';
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
-
-const interHeading = Inter({ subsets: ['latin'], variable: '--font-heading' });
+const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: 'Yogesh Dhuri | Full Stack Web Developer Portfolio',
@@ -26,12 +24,7 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={cn(
-        'antialiased',
-        'font-sans',
-        geist.variable,
-        interHeading.variable,
-      )}
+      className={cn('antialiased', 'font-sans', openSans.variable)}
       suppressHydrationWarning
     >
       <body className='min-h-screen flex flex-col justify-between'>

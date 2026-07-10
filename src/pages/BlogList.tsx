@@ -343,7 +343,7 @@ export default function BlogList() {
                 <article className='space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0'>
                   <dl>
                     <dt className='sr-only'>Published on</dt>
-                    <dd className='text-lg text-foreground/60'>
+                    <dd className='text-[16px] text-foreground/60'>
                       <time dateTime='2022-09-04T00:00:00.000Z'>
                         {formatedDateWithoutWeekDay(date)}
                       </time>

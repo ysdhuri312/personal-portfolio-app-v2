@@ -2,20 +2,15 @@
 
 import Link from 'next/link';
 import { Badge } from '../components/ui/badge';
-import Reddit from '@/public/icons/Reddit';
-import Twitter from '@/public/icons/Twitter';
-import Instagram from '@/public/icons/Instagram';
-import Facebook from '@/public/icons/Facebook';
-import Email from '@/public/icons/Mail';
-import Blog from '@/public/icons/Blog';
 import { AspectRatio } from '../components/ui/aspect-ratio';
 import Image from 'next/image';
 import { MarkdownRender } from '../lib/MarkdownRenderer';
 import { formatedDateWithWeekDay } from '../utils/formatedDate';
 import { getPrevNext } from '../utils/getPrevNext';
+import ShareLinks from '../components/ShareLinks';
 
 export default async function BlogPost({ post }: any) {
-  const { content, date, title, image, slug } = await post;
+  const { content, date, title, image, slug, tags } = await post;
   const { prev, next } = getPrevNext(slug);
 
   return (
@@ -40,26 +35,7 @@ export default async function BlogPost({ post }: any) {
               <p className='text-foreground/60 leading-6 tracking-wide mb-3'>
                 204 min read
               </p>
-              <ul className='flex items-center justify-center pt-2'>
-                <li>
-                  <Reddit className='w-9 p-1 fill-foreground/60 hover:fill-amber-600' />
-                </li>
-                <li>
-                  <Twitter className='w-9 p-1 fill-foreground/60 hover:fill-sky-500' />
-                </li>
-                <li>
-                  <Instagram className='w-9 p-1 fill-foreground/60 hover:fill-pink-600' />
-                </li>
-                <li>
-                  <Facebook className='w-9 p-1 fill-foreground/60 hover:fill-blue-800' />
-                </li>
-                <li>
-                  <Email className='w-9 p-1 fill-foreground/60 hover:fill-red-700' />
-                </li>
-                <li>
-                  <Blog className='w-9 p-1 fill-foreground/60 hover:fill-primary' />
-                </li>
-              </ul>
+              <ShareLinks />
             </div>
           </div>
           <div
@@ -87,7 +63,9 @@ export default async function BlogPost({ post }: any) {
                       <dd className=' text-lg'>Yogesh Sitaram Dhuri</dd>
                       <dt className='sr-only'>Twitter</dt>
                       <dd>
-                        <Link href='#'>@yogesh_6864</Link>
+                        <Link href='#' className='text-sidebar-primary'>
+                          @yogesh_6864
+                        </Link>
                       </dd>
                     </dl>
                   </li>
@@ -117,42 +95,52 @@ export default async function BlogPost({ post }: any) {
                       Tags
                     </h2>
                     <div className='flex flex-wrap gap-2'>
-                      <Badge variant='outline' className='text-sm p-3'>
-                        system-design
-                      </Badge>
-                      <Badge variant='outline' className='text-sm p-3'>
-                        distributedsystems
-                      </Badge>
+                      {tags.map((tag: string, i: number) => (
+                        <Badge
+                          variant='outline'
+                          className='text-sm p-3'
+                          key={i}
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
                     </div>
                   </div>
 
-                  <div className='flex justify-between py-4 xl:block xl:space-y-8 xl:py-8'>
-                    <div>
-                      <h2 className='text-lg text-foreground/60'>
-                        Previous article
-                      </h2>
-                      <Link
-                        href={`/blog/${prev?.slug}`}
-                        className='text-[16px]'
-                      >
-                        {prev?.title}
-                      </Link>
+                  {(next || prev) && (
+                    <div className='flex justify-between py-4 xl:block xl:space-y-8 xl:py-8'>
+                      {prev && (
+                        <div>
+                          <h2 className='text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400'>
+                            Previous Article
+                          </h2>
+                          <div className='text-sidebar-primary'>
+                            <Link href={`/blog/${prev.slug}`}>
+                              {prev.title}
+                            </Link>
+                          </div>
+                        </div>
+                      )}
+                      {next && (
+                        <div>
+                          <h2 className='text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400'>
+                            Next Article
+                          </h2>
+                          <div className='text-sidebar-primary'>
+                            <Link href={`/blog/${next.slug}`}>
+                              {next.title}
+                            </Link>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                    <div>
-                      <h2 className='text-lg text-foreground/60'>
-                        Next article
-                      </h2>
-                      <Link
-                        href={`/blog/${next?.slug}`}
-                        className='text-[16px]'
-                      >
-                        {next?.title}
-                      </Link>
-                    </div>
-                  </div>
+                  )}
                 </div>
                 <div className='pt-4 xl:pt-8'>
-                  <Link href='/blog' className='text-lg'>
+                  <Link
+                    href='/blog'
+                    className='text-[16px] text-sidebar-primary'
+                  >
                     &larr; Back to the blogs
                   </Link>
                 </div>
