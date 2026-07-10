@@ -9,6 +9,7 @@ import { formatedDateWithWeekDay } from '../utils/formatedDate';
 import { getPrevNext } from '../utils/getPrevNext';
 import ShareLinks from '../components/ShareLinks';
 import calculateReadingTime from '../utils/calculateReadingTime';
+import Comments from '../lib/Comments';
 
 export default async function BlogPost({ post }: any) {
   const { content, date, title, image, slug, tags } = await post;
@@ -23,7 +24,7 @@ export default async function BlogPost({ post }: any) {
               <dl className='space-y-10'>
                 <div>
                   <dt className='sr-only'>Published on</dt>
-                  <dd className='text-lg tracking-wide text-foreground/60'>
+                  <dd className='text-lg text-foreground/60'>
                     <time dateTime='2022-09-04T00:00:00.000Z'>
                       {formatedDateWithWeekDay(date)}
                     </time>
@@ -83,9 +84,12 @@ export default async function BlogPost({ post }: any) {
                 <MarkdownRender>{content}</MarkdownRender>
               </div>
               <div className='pt-6 pb-6 text-sm'>
-                <Link href='#'>Discuss on Twitter</Link>
+                <Link href='https://x.com/ysdhuri312'>Discuss on Twitter</Link>
                 {` • `}
                 <Link href='#'>View on GitHub</Link>
+              </div>
+              <div className='my-5'>
+                <Comments />
               </div>
             </div>
             <footer>
