@@ -351,7 +351,7 @@ export default function BlogList() {
                   </dl>
                   <div className='space-y-3 xl:col-span-3'>
                     <div>
-                      <h3 className='text-3xl font-bold'>
+                      <h3 className='text-3xl font-bold tracking-tight'>
                         <Link href={`/blog/${slug}`}>{title}</Link>
                       </h3>
                       <div className='flex flex-wrap gap-1 my-2'>

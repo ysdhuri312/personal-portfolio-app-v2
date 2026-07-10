@@ -26,7 +26,7 @@ export default function Home() {
             or{' '}
             <span className='font-normal relative inline-block border-b-3 border-primary px-1 py-0.5 before:absolute before:inset-0 before:origin-bottom before:scale-y-0 before:bg-primary before:transition-transform before:duration-300 before:content-[""] hover:before:scale-y-100'>
               <Link
-                href='mailto:info@dhuri.dev'
+                href='mailto:ysdhuri312@gmail.com'
                 className='relative z-10 hover:text-white'
               >
                 contact me

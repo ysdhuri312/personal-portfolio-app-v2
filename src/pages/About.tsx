@@ -29,7 +29,7 @@ export default function About() {
               <h3 className='text-3xl font-bold mt-5 mb-2 text-center'>
                 Yogesh Dhuri
               </h3>
-              <p className='px-6 text-xl text-foreground/60 text-center'>
+              <p className='px-6 text-[16px] text-foreground/60 text-center'>
                 Full stack web developer <br /> Fresher
               </p>
             </div>
