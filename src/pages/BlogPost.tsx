@@ -8,6 +8,7 @@ import { MarkdownRender } from '../lib/MarkdownRenderer';
 import { formatedDateWithWeekDay } from '../utils/formatedDate';
 import { getPrevNext } from '../utils/getPrevNext';
 import ShareLinks from '../components/ShareLinks';
+import calculateReadingTime from '../utils/calculateReadingTime';
 
 export default async function BlogPost({ post }: any) {
   const { content, date, title, image, slug, tags } = await post;
@@ -33,7 +34,7 @@ export default async function BlogPost({ post }: any) {
                 {title}
               </h1>
               <p className='text-foreground/60 leading-6 tracking-wide mb-3'>
-                204 min read
+                {calculateReadingTime(content)} min read
               </p>
               <ShareLinks />
             </div>
