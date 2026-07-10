@@ -18,10 +18,14 @@ import {
 import { Button } from '../components/ui/button';
 import { getAllPosts } from '../services/blogPost';
 import { formatedDateWithoutWeekDay } from '../utils/formatedDate';
+import tagsCounts from '../utils/tagsCounts';
 
 export default function BlogList() {
-  const posts = getAllPosts();
-  const sortedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const posts: any = getAllPosts();
+  const sortedPosts = posts.sort(
+    (a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
+  const tags = tagsCounts(posts);
 
   return (
     <div className='container'>
@@ -58,276 +62,22 @@ export default function BlogList() {
                   <DialogTitle className='text-xl'>Tags</DialogTitle>
                 </DialogHeader>
                 <div className='flex max-w-lg flex-wrap'>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase'
-                      href='/tags/go'
-                    >
-                      go
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase'
-                      href='/tags/go'
-                    >
-                      {' '}
-                      (16)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/javascript'
-                    >
-                      javascript
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/javascript'
-                    >
-                      {' '}
-                      (13)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/nats'
-                    >
-                      nats
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/nats'
-                    >
-                      {' '}
-                      (11)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/docker'
-                    >
-                      docker
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/docker'
-                    >
-                      {' '}
-                      (11)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/devops'
-                    >
-                      devops
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/devops'
-                    >
-                      {' '}
-                      (11)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/react'
-                    >
-                      react
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/react'
-                    >
-                      {' '}
-                      (10)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/aws'
-                    >
-                      aws
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/aws'
-                    >
-                      {' '}
-                      (10)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/distributedsystems'
-                    >
-                      distributedsystems
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/distributedsystems'
-                    >
-                      {' '}
-                      (9)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/typescript'
-                    >
-                      typescript
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/typescript'
-                    >
-                      {' '}
-                      (9)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/node'
-                    >
-                      node
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/node'
-                    >
-                      {' '}
-                      (9)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/tutorial'
-                    >
-                      tutorial
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/tutorial'
-                    >
-                      {' '}
-                      (6)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/reactnative'
-                    >
-                      reactnative
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/reactnative'
-                    >
-                      {' '}
-                      (5)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/productivity'
-                    >
-                      productivity
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/productivity'
-                    >
-                      {' '}
-                      (5)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/kubernetes'
-                    >
-                      kubernetes
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/kubernetes'
-                    >
-                      {' '}
-                      (4)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/beginners'
-                    >
-                      beginners
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/beginners'
-                    >
-                      {' '}
-                      (4)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/microservices'
-                    >
-                      microservices
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/microservices'
-                    >
-                      {' '}
-                      (4)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/monitoring'
-                    >
-                      monitoring
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/monitoring'
-                    >
-                      {' '}
-                      (2)
-                    </a>
-                  </div>
-                  <div className='mt-2 mb-2 mr-5'>
-                    <a
-                      className='mt-1 mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                      href='/tags/postgres'
-                    >
-                      postgres
-                    </a>
-                    <a
-                      className='-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300'
-                      href='/tags/postgres'
-                    >
-                      {' '}
-                      (2)
-                    </a>
-                  </div>
+                  {tags.map(({ tag, count }) => (
+                    <div className='mt-2 mb-2 mr-5' key={tag}>
+                      <Link
+                        className='mt-1 mr-3 text-sm font-medium'
+                        href={`tags/${tag}`}
+                      >
+                        {tag}
+                      </Link>
+                      <Link
+                        className='-ml-2 text-sm font-semibold text-primary'
+                        href={`tags/${tag}`}
+                      >
+                        ({count})
+                      </Link>
+                    </div>
+                  ))}
                 </div>
               </DialogContent>
             </Dialog>
@@ -335,7 +85,7 @@ export default function BlogList() {
         </InputGroup>
         <hr />
         <ul>
-          {sortedPosts.map((post, i) => {
+          {sortedPosts.map((post: any, i: number) => {
             const { slug, title, date, summary, tags } = post;
 
             return (
