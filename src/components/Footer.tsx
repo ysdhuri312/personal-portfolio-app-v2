@@ -14,11 +14,9 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer>
-      <div className='container py-4 md:px-10 lg:px-14'>
-        <div className='md:flex justify-between items-center'>
-          <div className='text-foreground/60'>
-            © 2026 Yogesh Dhuri. All rights reserved.
-          </div>
+      <div className='container py-4 sm:px-10 lg:px-14'>
+        <div className='mt-5 flex flex-col-reverse justify-between items-center gap-3 sm:flex-row'>
+          <div className='text-foreground/60'>© 2026 Yogesh Sitaram Dhuri.</div>
           <div className='flex gap-2'>
             <div>
               <Link href='https://github.com/ysdhuri312' target='_blank'>
