@@ -5,18 +5,18 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <div className='container'>
-      <section className='flex justify-between items-center gap-2'>
+      <section className='mt-15 flex flex-col justify-between items-center gap-8 md:flex-row md:mt-0'>
         <div className='flex-2'>
-          <h1 className='text-5xl font-extrabold tracking-wide'>
+          <h1 className='text-5xl  font-extrabold sm:text-5xl md:tracking-wide'>
             Hi, I am Yogesh Dhuri<span>👋</span>
           </h1>
-          <p className='mt-7 w-2xl text-xl'>
+          <p className='mt-7 md:w-2xl md:text-xl'>
             I'm Full stack web developer having specialization in backend &
             Front web development. I have backend skills in Node.js, Expess.js.
             I also have frontend skills in JavaScript, react.js, Web components
             like css, Bootstraps.
           </p>
-          <p className='mt-2 font-extralight text-[22px] '>
+          <p className='mt-2 font-extralight md:text-[22px] '>
             Read more{' '}
             <span className='font-normal relative inline-block border-b-3 border-primary px-1 py-0.5 before:absolute before:inset-0 before:origin-bottom before:scale-y-0 before:bg-primary before:transition-transform before:duration-300 before:content-[""] hover:before:scale-y-100'>
               <Link href='/about' className='relative z-10 hover:text-white'>
