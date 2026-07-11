@@ -10,8 +10,8 @@ export default function About() {
       <section className='min-h-screen'>
         <h1 className='text-6xl font-extrabold mt-20 mb-8'>About</h1>
         <hr />
-        <div className='my-10 flex gap-15'>
-          <aside className='w-1/4'>
+        <div className='my-10 flex flex-col gap-15 sm:flex-row'>
+          <aside className='sm:w-1/4'>
             <div>
               <div>
                 <AspectRatio
@@ -100,7 +100,7 @@ export default function About() {
               </Link>
             </div>
           </aside>
-          <p className='text-lg w-3/4'>
+          <p className='text-lg sm:w-3/4'>
             I'm Yogesh Sitaram Dhuri, an aspiring Full Stack Software Developer
             with a strong foundation in modern JavaScript technologies and a
             passion for building scalable, reliable, and user-centric web
