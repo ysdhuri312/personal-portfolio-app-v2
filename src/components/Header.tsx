@@ -33,7 +33,7 @@ export default function Header() {
   return (
     <header>
       <div className='container py-4 md:px-10 lg:px-14'>
-        <div className='flex justify-between items-center'>
+        <div className='flex justify-between items-center mb-8'>
           <Link href='/' className='text-3xl font-heading -tracking-widest'>
             YD
           </Link>

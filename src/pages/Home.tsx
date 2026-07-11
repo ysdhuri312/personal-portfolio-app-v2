@@ -5,9 +5,9 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <div className='container'>
-      <section className='mt-15 flex flex-col justify-between items-center gap-8 md:flex-row md:mt-0'>
-        <div className='flex-2'>
-          <h1 className='text-5xl  font-extrabold sm:text-5xl md:tracking-wide'>
+      <section className='flex flex-col justify-between items-center gap-8 md:flex-row sm:mt-0'>
+        <div className='flex-1 md:flex-2'>
+          <h1 className='text-5xl font-extrabold md:tracking-wide'>
             Hi, I am Yogesh Dhuri<span>👋</span>
           </h1>
           <p className='mt-7 md:w-2xl md:text-xl'>
@@ -34,7 +34,7 @@ export default function Home() {
             </span>
           </p>
         </div>
-        <div className='flex-1'>
+        <div className='flex-1 md:flex-1'>
           <div>
             <svg className='h-80' viewBox='0 0 212 234'>
               <title>peep-46</title>
