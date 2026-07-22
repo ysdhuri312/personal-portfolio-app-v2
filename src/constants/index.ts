@@ -91,6 +91,6 @@ export const projects = [
     image: portfolioNext,
     source_code_link:
       'https://github.com/ysdhuri312/personal-portfolio-app-v2.git',
-    live_app_link: 'https://ysdhuri312.github.io/dhuriyogesh.github.io/',
+    live_app_link: 'https://www.dhuriyogesh.me/',
   },
 ];
