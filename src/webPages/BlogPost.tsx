@@ -1,20 +1,26 @@
-/** @format */
-
 import Link from 'next/link';
 import { Badge } from '../components/ui/badge';
 import { AspectRatio } from '../components/ui/aspect-ratio';
 import Image from 'next/image';
 import { MarkdownRender } from '../lib/MarkdownRenderer';
 import { formatedDateWithWeekDay } from '../utils/formatedDate';
-import { getPrevNext } from '../utils/getPrevNext';
 import ShareLinks from '../components/ShareLinks';
 import calculateReadingTime from '../utils/calculateReadingTime';
 import Comments from '../lib/Comments';
 import ScrollButton from '../components/ScrollButton';
+import type { BlogPost as BlogPostType } from '@/src/types/blog';
 
-export default async function BlogPost({ post }: any) {
-  const { content, date, title, image, slug, tags } = await post;
-  const { prev, next } = getPrevNext(slug);
+interface BlogPostProps {
+  post: BlogPostType;
+  navigation: {
+    prev: BlogPostType | null;
+    next: BlogPostType | null;
+  };
+}
+
+export default async function BlogPost({ post, navigation }: BlogPostProps) {
+  const { content, date, title, image, tags } = await post;
+  const { prev, next } = navigation;
 
   return (
     <div className='container'>

@@ -1,6 +1,6 @@
 /** @format */
 
-import Home from '../pages/Home';
+import Home from '../webPages/Home';
 
 export default function page() {
   return <Home />;

@@ -1,5 +1,3 @@
-/** @format */
-
 import { Search } from 'lucide-react';
 import { Badge } from '../components/ui/badge';
 import {
@@ -16,14 +14,17 @@ import {
   DialogTrigger,
 } from '../components/ui/dialog';
 import { Button } from '../components/ui/button';
-import { getAllPosts } from '../services/blogPost';
 import { formatedDateWithoutWeekDay } from '../utils/formatedDate';
 import tagsCounts from '../utils/tagsCounts';
+import { BlogPost } from '../types/blog';
 
-export default function BlogList() {
-  const posts: any = getAllPosts();
-  const sortedPosts = posts.sort(
-    (a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+interface BlogListProps {
+  posts: BlogPost[];
+}
+
+export default function BlogList({ posts }: BlogListProps) {
+  const sortedPosts = [...posts].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
   const tags = tagsCounts(posts);
 

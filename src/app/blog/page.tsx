@@ -1,7 +1,9 @@
 /** @format */
 
-import BlogList from '@/src/pages/BlogList';
+import BlogList from '@/src/webPages/BlogList';
+import { getAllPosts } from '@/src/lib/blog.server';
 
 export default function page() {
-  return <BlogList />;
+  const posts = getAllPosts();
+  return <BlogList posts={posts} />;
 }

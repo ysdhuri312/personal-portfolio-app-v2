@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className='container'>
+    <div className='container' id='home'>
       <section className='flex flex-col justify-between items-center gap-8 md:flex-row sm:mt-0'>
         <div className='flex-1 md:flex-2'>
           <h1 className='text-5xl font-extrabold md:tracking-wide'>

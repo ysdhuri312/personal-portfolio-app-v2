@@ -1,6 +1,6 @@
 /** @format */
 
-import Photos from '../../pages/Photos';
+import Photos from '../../webPages/Photos';
 
 export default function page() {
   return <Photos />;

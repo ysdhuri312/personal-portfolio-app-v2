@@ -1,8 +1,12 @@
-import { getAllPosts } from '../services/blogPost';
+import 'server-only';
+
+import { getAllPosts } from '../lib/blog.server';
 
 export function getPrevNext(current: string) {
   const posts = getAllPosts();
-  const sortedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const sortedPosts = posts.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
 
   const index = sortedPosts.findIndex((post) => post.slug === current);
   if (index === -1) return { prev: null, next: null };
