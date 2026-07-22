@@ -1,12 +1,12 @@
 /** @format */
 
-import { edemy, portfolio, yelpCamp } from '@/public';
+import { edemy, portfolio, yelpCamp, portfolioNext } from '@/public';
 
 export const projects = [
   {
-    name: 'Portfolio Website',
+    name: 'Portfolio Website with React',
     description:
-      'My personal website - built with HTML, CSS, javascript and Deploy on GitHub Pages.',
+      'My personal website - built with React.js, tailwind-css and Deploy on Vercel.',
     tags: [
       {
         name: 'react',
@@ -70,28 +70,27 @@ export const projects = [
       'https://github.com/ysdhuri312/learning-management-system-v1.git',
     live_app_link: 'https://lms-frontend-nine-psi.vercel.app/',
   },
-
   {
-    name: 'Learning Management System (Edemy)',
+    name: 'Portfolio Website with Next.Js',
     description:
-      'Developed a full-stack Learning Management System featuring secure authentication, course browsing, enrollment, and lecture access using React, Node.js, Express.js, and MongoDB. Integrated Clerk for authentication and user management, Stripe for secure payment processing, and Cloudinary for media storage and delivery.',
+      'My personal website - built with next.js, shadcn and Deploy on vercel.',
     tags: [
       {
-        name: 'react-js',
+        name: 'next',
         color: 'blue-text-gradient',
       },
       {
-        name: 'node-js',
+        name: 'shadcn',
         color: 'green-text-gradient',
       },
       {
-        name: 'REST-api',
+        name: 'tailwind',
         color: 'pink-text-gradient',
       },
     ],
-    image: edemy,
+    image: portfolioNext,
     source_code_link:
-      'https://github.com/ysdhuri312/learning-management-system-v1.git',
-    live_app_link: 'https://lms-frontend-nine-psi.vercel.app/',
+      'https://github.com/ysdhuri312/personal-portfolio-app-v2.git',
+    live_app_link: 'https://ysdhuri312.github.io/dhuriyogesh.github.io/',
   },
 ];
