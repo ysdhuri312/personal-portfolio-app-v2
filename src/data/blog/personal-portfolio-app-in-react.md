@@ -2,7 +2,7 @@
 title: 'Personal Portfolio Website in React JS'
 summary: 'A personal portfolio and developer journal documenting real-world development decisions, challenges, and solutions. It serves as both a reference for my future self and a place to share practical development experiences with others. This website is built as a living project, evolving over time as I learn, experiment, and improve my approach to building web applications. '
 date: 'January 11, 2026'
-image: '/blogs/personal-portfolio-website-in-react/cover.png'
+image: '/blogs/personal-portfolio-website-in-react.png'
 tags: ['react-js', 'personal-website', 'ui']
 ---
 

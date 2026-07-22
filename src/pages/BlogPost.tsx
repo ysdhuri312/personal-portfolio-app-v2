@@ -10,6 +10,7 @@ import { getPrevNext } from '../utils/getPrevNext';
 import ShareLinks from '../components/ShareLinks';
 import calculateReadingTime from '../utils/calculateReadingTime';
 import Comments from '../lib/Comments';
+import ScrollButton from '../components/ScrollButton';
 
 export default async function BlogPost({ post }: any) {
   const { content, date, title, image, slug, tags } = await post;
@@ -17,6 +18,7 @@ export default async function BlogPost({ post }: any) {
 
   return (
     <div className='container'>
+      <ScrollButton />
       <article className='fade-in mt-7'>
         <div className='xl:divide-y '>
           <div className='pt-6 xl:pb-6'>
@@ -75,9 +77,11 @@ export default async function BlogPost({ post }: any) {
               </dd>
             </dl>
             <div className='divide-y-2 xl:col-span-3 xl:row-span-2 xl:pb-0'>
-              <img
+              <Image
                 src={image}
-                className='object-cover object-center'
+                width={1200}
+                height={630}
+                className='object-cover object-center w-full'
                 alt='banner'
               />
               <div>

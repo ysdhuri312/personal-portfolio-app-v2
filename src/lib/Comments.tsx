@@ -4,6 +4,7 @@ import { useTheme } from 'next-themes';
 
 export default function Comments() {
   const { resolvedTheme } = useTheme();
+
   return (
     <Giscus
       id='comments'

@@ -5,7 +5,6 @@ export function getPrevNext(current: string) {
   const sortedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const index = sortedPosts.findIndex((post) => post.slug === current);
-  console.log(index);
   if (index === -1) return { prev: null, next: null };
 
   return {
