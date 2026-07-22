@@ -13,7 +13,7 @@ const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-sans' });
 export const metadata: Metadata = {
   title: 'Yogesh Dhuri | Full Stack Web Developer Portfolio',
   description:
-    'Yogesh Dhuri | Aspiring Full Stack Developer | Building Projects with React, Node.js & MongoDB | Open to Internship Opportunities',
+    'Yogesh Dhuri | Aspiring Full Stack Developer | Building Projects with Next.js, tailwindcss & shadcn | Open to Internship Opportunities',
 };
 
 export default function RootLayout({

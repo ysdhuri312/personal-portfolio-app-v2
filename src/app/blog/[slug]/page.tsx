@@ -5,6 +5,17 @@ import { getPost } from '@/src/lib/blog.server';
 import { notFound } from 'next/navigation';
 import { getPrevNext } from '@/src/lib/blog-navigation.server';
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = await params;
+  return {
+    title: `Blog | ${slug}`,
+  };
+}
+
 export default async function page({ params }: { params: { slug: string } }) {
   const { slug } = await params;
   const post = await getPost(slug);
